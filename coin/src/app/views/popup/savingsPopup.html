@@ -1,0 +1,41 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <form ng-submit='pop.addCircle() && addItem.$valid' name='addItem' >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="submit" id='modal-submit' ng-click="pop.submitted=true"><img src="../../img/popup-img/submit.png" alt="">
+                    </button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true"><img src="../../img/popup-img/close.png" alt=""></span></button>
+                    <h4 class="modal-title" id="myModalLabel">Where do you keep money?</h4>
+                    <div class='choose-icon' data-toggle="modal" data-target="#myModal2">choose icon</div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" class="form-control"
+                               ng-class="{ errorinput: pop.submitted && addItem.inputName.$error.required }"
+                               name="inputName" id="inputName" ng-model="pop.savingsName" ng-required='true'
+                               placeholder="Name">
+                        <span ng-show="pop.submitted && addItem.inputName.$error.required">Name is required</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="balance" ng-model="pop.savingsAmmount"
+                               placeholder="Account balance"></div>
+                    <div class="modal-footer">
+                        <div class="choose-cur col-lg-6 col-md-6 col-sm-12 col-xs-12"><span>choose currency</span>
+                            <select name="mySelect" id="mySelect"
+                                    ng-options="option.name for option in pop.data.availableOptions track by option.id"
+                                    ng-model="pop.data.selectedOption"
+                                    ng-init="selectedOption.name = pop.data.availableOptions[2]">
+
+                            </select>
+                        </div>
+                        <div class="include-bal col-lg-6 col-md-5 col-sm-12 col-xs-12">
+                            <label for="inc">include in total balance</label>
+                            <input type="checkbox" id='inc' ng-model="pop.checked"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
