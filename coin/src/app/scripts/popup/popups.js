@@ -1,12 +1,13 @@
-angular.module('popUps', [])
-    .controller('popupsController', function ($http) {
+
+var angularModule = angular.module('popUps', []);
+    angularModule.controller('popupsController', function ($http) {
     var pop = this;
-    pop.USDtoUAH;
+
     $http.get("https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11").then(function (response) {
         pop.USDtoUAH = response.data[0].buy;
         pop.EURtoUAH = response.data[1].buy;
         return (pop.EURtoUAH);
-        
+
     });
     pop.circles = [
         {
@@ -113,3 +114,9 @@ angular.module('popUps', [])
         pop.submitted = false;
     }
 });
+    angularModule.controller('apiCtrl', function ($http) {
+    var api = this;
+
+        
+
+    });
