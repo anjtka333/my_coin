@@ -114,9 +114,3 @@ var angularModule = angular.module('popUps', []);
         pop.submitted = false;
     }
 });
-    angularModule.controller('apiCtrl', function ($http) {
-    var api = this;
-
-        
-
-    });
